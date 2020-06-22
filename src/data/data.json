@@ -1,0 +1,4 @@
+{
+    "name":"jsonData",
+    "desc":"webpack--- json 转换为 js ,同时配置加载器把 es6 转换为 es5 !!"
+}
