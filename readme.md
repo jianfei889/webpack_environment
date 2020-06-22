@@ -56,12 +56,11 @@
         ```"dev": "webpack-dev-server --content-base dist --inline --hot"```
         > --hot可以省略，和--inline代表热更新的意思
     7. 服务器配置
-        | | 命令符 | 备注信息      |
-        |:--------:| -------------:|
-        | --content-base | 指定服务器运行根目录 |
-        | --inline | 热更新 |
-        | --port=8080 | 修改端口 |
-        | --open | 自动打开默认浏览器 |
+        
+        -  --content-base | 指定服务器运行根目录 
+        -  --inline | 热更新 
+        -  --port=8080 | 修改端口 
+        -  --open | 自动打开默认浏览器 
 7. module
     loaders
     >新版本的 module 为 use,这个也就是加载器loader
