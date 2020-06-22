@@ -94,6 +94,25 @@
 9. 安装开发环境 Vue（这里安装 Vue的，需要react的需要另行安装配置）
 
 
+10. html-webpack-plugin 把index.html也存储上运行磁盘
+    ```npm i html-webpack-plugin@3.x -D```
+
+11. 加载器 
+    - css 
+        1. npm i style-loader css-loader -D
+        2. webpack.config.js  module 编写配置代码
+            ```{ test: /\.css$/,  use: ['style-loader','css-loader']},```
+    - images 
+        1. npm i url-loader file-loader
+        2. webpack.config.js  module 编写配置代码
+            ```{ test: /\.(jpg|png|gif|jpeg)$/,  use:'url-loader'},```
+        3. 图片base64转码和hash命名
+            ```{ test: /\.(jpg|png|gif|jpeg)$/,  use:'url-loader?limit=6575&name=[hash:8]-[name].[ext]'},```
+    - font
+        1. npm i url-loader（2020年6月：最新版有问题，最新版不行就降低版本稳定使用）
+        2. {test:/\.(ttf|woff2|eot|svg|woff)/,use:'url-loader'},
+
+
 
 
 

@@ -3,6 +3,11 @@ document.getElementById('app').appendChild(hello())
 
 console.log("okkk")
 
+import './css/index.css'
+import  'bootstrap/dist/css/bootstrap.css'
+
+
+
 // import Vue from 'vue'//导入vue包
 // import app from './app.vue'//导入app组件
 

@@ -1,4 +1,9 @@
-// const webpack = require('webpack')//热更新第二方法：第二步（貌似版本的更新把热更新的问题解决了，但是照例配置一下，以便出错可用）
+const webpack = require('webpack')
+const path = require('path')
+
+//导入在内存中生成html页面的插件
+const htmlWebpackPlugin = require('html-webpack-plugin')
+
 
 module.exports = {
     entry: __dirname + "/src/index.js",//用上相对路径 __dirname
@@ -7,24 +12,25 @@ module.exports = {
         filename:"bundle.js"
     },
 
-    devServer:{//dev-server的第二种方式
-        // --content-base src --inline --hot --port=8080 --open
-        open:true,
-        port:8080,
-        contentBase:"src",
-        hot:true//热更新第二方法：第一步（貌似版本的更新把热更新的问题解决了，但是照例配置一下，以便出错可用）
-    },
 
-    //热更新第二方法：第三步（貌似版本的更新把热更新的问题解决了，但是照例配置一下，以便出错可用，但是不推荐这种方法，还是使用第一种方法。开发常用第一种方法。这个学习学习就可以了）
-    // plugins:[
-    //     new webpack.HotModuleReplacementPlugin()
-    // ],
+    plugins:[
+    
+    new htmlWebpackPlugin({//html放进运行磁盘中
+        template:path.join(__dirname,'./src/index.html'),
+        filename:'index.html'//生成页面的名称
+    })
+    ],
 
     module:{
         rules:[
             {  test:/\.json$/,  use:"json-loader"},
             {  test:/\.(js|jsx)$/,  use:"babel-loader",  },
             { test: /\.vue$/,  use: 'vue-loader'},
+            { test: /\.css$/,  use: ['style-loader','css-loader']},
+            // limit的字节数比图片大---base64 转码，比它小的就不base64转码
+            { test: /\.(jpg|png|gif|jpeg)$/,  use:'url-loader?limit=6575&name=[hash:8]-[name].[ext]'},
+            {test:/\.(ttf|woff2|eot|svg|woff)/,use:'url-loader'},
+            
 
         ]
     }

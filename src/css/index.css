@@ -1,0 +1,15 @@
+li{
+    list-style: none;
+    
+}
+
+#box{
+    background-image: url('../images/logo3.png');
+    width: 100px;
+    height: 50px;
+}
+#box2{
+    background-image: url('../images2/logo3.png');
+    width: 100px;
+    height: 50px;
+}
